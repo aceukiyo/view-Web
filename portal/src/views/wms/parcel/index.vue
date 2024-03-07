@@ -63,6 +63,9 @@ let resultList = [
   { wb: 'WB6', pid: 'PID2', custom_status: 'INSP', flightNo: null, flightDate: '2024-03-05', storageArea: null, storageLocation: 'Location2' },
   { wb: 'WB7', pid: 'PID1', custom_status: 'INSP', flightNo: null, flightDate: '2024-03-04', storageArea: null, storageLocation: 'Location1' },
   { wb: 'WB8', pid: 'PID2', custom_status: 'INSP', flightNo: null, flightDate: '2024-03-05', storageArea: null, storageLocation: 'Location2' },
+  { wb: 'WB9', pid: 'PID1', custom_status: 'INSP', flightNo: null, flightDate: '2024-03-04', storageArea: null, storageLocation: 'Location1' },
+  { wb: 'WB10', pid: 'PID2', custom_status: 'INSP', flightNo: null, flightDate: '2024-03-05', storageArea: null, storageLocation: 'Location2' },
+
   // test data...
 ];
 let tableRowData: any = reactive({ weight: "", width: "", length: "", height: "" });

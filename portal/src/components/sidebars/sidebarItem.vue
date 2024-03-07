@@ -39,7 +39,7 @@ const props = defineProps({
 });
 let routes = (props.routerList as  CustomRouteRecordRaw[]).filter(r => r.meta && r.meta.isShow) ;
 </script>
-<style  scoped>
+<style lang="scss" scoped>
 /* .line{
 	height: 1px;
 	background-color: #fff;

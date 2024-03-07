@@ -7,11 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AsideMenu: typeof import('./src/components/sidebars/AsideMenu.vue')['default']
     BaseSelect: typeof import('./src/components/selects/baseSelect.vue')['default']
     Breadcrumbs: typeof import('./src/components/Breadcrumbs/index.vue')['default']
     Buttons: typeof import('./src/components/buttons/index.vue')['default']
     ContentWraps: typeof import('./src/components/contentWraps/index.vue')['default']
     Dailogs: typeof import('./src/components/dailogs/index.vue')['default']
+    Dark: typeof import('./src/components/Icon/Dark.vue')['default']
+    Drawer: typeof import('./src/components/sidebars/Drawer.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']

@@ -18,7 +18,7 @@
 import useStore from '../../store/index';
 import vHeader from '../../layout/header.vue';
 import vSidebar from '../../components/sidebars/index.vue';
-import vTags from '../../layout/tags.vue';
+// import vTags from '../../layout/tags.vue';
 
 const sidebar = useStore().userSidebar;
 const tags = useStore().userTag;

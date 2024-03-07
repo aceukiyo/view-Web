@@ -1,7 +1,35 @@
 import { defineStore } from 'pinia';
 import { ElMessage, ComponentSize } from 'element-plus';
+import {Ref} from "vue";
+import {cloneDeep} from "lodash"
+import storage from "good-storage"
+import {useDark} from '@vueuse/core'
+import {storagePrefixKey} from "../config/app"
+import {Tab} from "../components/TabsChrome/tab";
+
+const TCK = storagePrefixKey + "Chrome"
+const ACK = storagePrefixKey + "Aside"
+const DMK = storagePrefixKey + "Dark"
+
+
+// interface appStore {
+//   tabsChrome: Tab[],
+//   asideCollapse: boolean,
+//   isDarkMode: Ref
+// }
+
+const initTabs: Tab[] = [{
+  title: '首页',
+  path: '/dashboard',
+  closable: false,
+}]
+
+
 
 interface AppState {
+  tabsChrome: Tab[],
+  asideCollapse: boolean,
+  isDarkMode: Ref,
   breadcrumb: boolean
   breadcrumbIcon: boolean
   collapse: boolean
@@ -46,9 +74,19 @@ declare interface ThemeTypes {
 };
 declare type LayoutType = 'classic' | 'topLeft' | 'top' | 'cutMenu'
 
-export const useAppStore = defineStore('app', {
+export var useAppStore = defineStore('app', {
+  // state: (): appStore => {
+  //   return {
+  //     tabsChrome: storage.get(TCK, cloneDeep(initTabs)),//导航栏,没有值的时候需要默认打开首页
+  //     asideCollapse: storage.get(ACK, false),//侧边栏
+  //     isDarkMode: useDark({storageKey: DMK})//黑暗模式
+  //   }
+  // },
   state: (): AppState => {
     return {
+      tabsChrome: storage.get(TCK, cloneDeep(initTabs)),//导航栏,没有值的时候需要默认打开首页
+      asideCollapse: storage.get(ACK, false),//侧边栏
+      isDarkMode: useDark({storageKey: DMK}),//黑暗模式
       sizeMap: ['default', 'large', 'small'],
       mobile: false, // 是否是移动端
       title: import.meta.env.VITE_APP_TITLE, // 标题
@@ -184,6 +222,33 @@ export const useAppStore = defineStore('app', {
     }
   },
   actions: {
+    toggleAside() {
+      this.asideCollapse = !this.asideCollapse
+      storage.set(ACK, this.asideCollapse)
+    },
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode
+      // useDarkToggle(this.isDarkMode)
+    },
+    pushTabsChrome(t: Tab) {
+      let hasTab = this.tabsChrome.find((r: Tab) => r.path == t.path)
+      if (hasTab) return;
+      this.tabsChrome.push(t)
+    },
+    removeTabChrome(t: Tab): Tab | null {
+      let index: number = -1
+      this.tabsChrome.forEach((r, i) => {
+        if (r.path == t.path) {
+          index = i
+        }
+      })
+      if (index == -1) return null
+      this.tabsChrome.splice(index, 1)
+      return this.tabsChrome[this.tabsChrome.length - 1]
+    },
+    removeAllTab() {
+      this.tabsChrome = cloneDeep(initTabs)
+    },
     setBreadcrumb(breadcrumb: boolean) {
       this.breadcrumb = breadcrumb
     },

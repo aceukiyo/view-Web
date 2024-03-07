@@ -1,13 +1,21 @@
 <template>
 	<div class="header">
 		<!-- button -->
-		<div class="collapse-btn" @click="collapseChage">
+		<!-- <div class="collapse-btn" @click="collapseChage">
 			<el-icon v-if="useStore().userSidebar.collapse"><Expand /></el-icon>
 			<el-icon v-else><Fold /></el-icon>
-		</div>
+		</div> -->
+		<div class="collapse-btn" @click="AppState.toggleAside()">
+		<el-icon  :size="22" :class="asideCollapse ? '' : 'aside-collapse'">
+          <expand />
+        </el-icon>
+	</div>
 		<div class="logo">Vanderlande</div>
 		<div class="header-right">
 			<div class="header-user-con">
+				<div>
+					<themeSwitch @toggleDarkMode="AppState.toggleDarkMode()"/>
+				</div>
 				<div>
 					<localeDropDown></localeDropDown>
 					</div>
@@ -48,10 +56,15 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import {storeToRefs} from "pinia";
 import  useStore  from '../store/index';
 import { useRouter } from 'vue-router';
 import localeDropDown from "../components/dropDowns/localeDropDown.vue";
+import {useAppStore} from "../store/app";
+import themeSwitch from './themeSwich/themeSwitch.vue';
 
+const AppState = useAppStore()
+const { asideCollapse } = storeToRefs(AppState)
 const username: string | null = localStorage.getItem('ms_username');
 const message: number = 2;
 
@@ -80,7 +93,7 @@ const handleCommand = (command: string) => {
 .header {
 	position: relative;
 	box-sizing: border-box;
-	background: linear-gradient(to right, #002140, rgb(96, 79, 79));
+	background: white;
 	width: 100%;
 	height: 69px;
 	font-size: 22px;
