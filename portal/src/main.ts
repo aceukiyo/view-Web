@@ -4,6 +4,12 @@ import App from './App.vue';
 import router from './router';
 import 'element-plus/dist/index.css';
 import './assets/css/icon.css';
+import {createPinia} from "pinia"
+import 'element-plus/dist/index.css'
+import ElementPlus from 'element-plus'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import 'vxe-table/lib/style.css'
 import i18n from './utils/i18n';
 //初始化vxe-table style
 import 'vxe-table/lib/style.css';

@@ -44,7 +44,7 @@ const routerList = router.options.routes;
 // };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .sidebar {
 	height: 100%;
 	.sidebar-logo {

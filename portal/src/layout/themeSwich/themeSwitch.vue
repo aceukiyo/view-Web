@@ -22,7 +22,6 @@ const emit = defineEmits(["toggleDarkMode"])
 .themeSwitch{
   display: flex;
   align-items: center;
-  align-items: flex-start;
   color: #303133;
   transition: border-color var(--el-transition-duration),background-color var(--el-transition-duration-fast);
   height: 24px;
@@ -38,7 +37,7 @@ const emit = defineEmits(["toggleDarkMode"])
     border: 1px solid #dcdfe6;
     outline: none;
     border-radius: 10px;
-    // box-sizing: border-box;
+    box-sizing: border-box;
     background: #f2f2f2;
     cursor: pointer;
     overflow: hidden;
@@ -68,6 +67,9 @@ const emit = defineEmits(["toggleDarkMode"])
   }
   .light-icon {
     opacity: 0;
+  }
+  .dark.header{
+    background-color: #2f2f2f!important;
   }
 }
 </style>

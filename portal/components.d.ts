@@ -64,6 +64,8 @@ declare module '@vue/runtime-core' {
     Sidebar: typeof import('./src/components/sidebars/index.vue')['default']
     SidebarItem: typeof import('./src/components/sidebars/sidebarItem.vue')['default']
     Sidebars: typeof import('./src/components/sidebars/index.vue')['default']
+    Tab: typeof import('./src/components/TabsChrome/Tab.vue')['default']
+    TabChromeX: typeof import('./src/components/TabsChrome/TabChromeX.vue')['default']
     Tables: typeof import('./src/components/tables/index.vue')['default']
   }
 }
