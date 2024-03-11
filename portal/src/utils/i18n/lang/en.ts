@@ -84,7 +84,8 @@ export default {
     roleMan: "Role Management",
     tsuMan: "Tsu Management",
     locationMan: "Location Management",
-    parcelMan: "Parcel Management"
+    parcelMan: "Parcel Management",
+    tsutypeMan:"Tsu Type"
   },
   api: {
     operationFailed: 'Operate Failed',

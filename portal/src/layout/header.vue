@@ -1,15 +1,15 @@
 <template>
-	<div class="header">
+	<div class="header" :class="{'dark' : AppState.isDarkMode}">
 		<!-- button -->
-		<!-- <div class="collapse-btn" @click="collapseChage">
+		<div class="collapse-btn" @click="collapseChage">
 			<el-icon v-if="useStore().userSidebar.collapse"><Expand /></el-icon>
 			<el-icon v-else><Fold /></el-icon>
-		</div> -->
-		<div class="collapse-btn" @click="AppState.toggleAside()">
+		</div>
+		<!-- <div class="collapse-btn" @click="AppState.toggleAside()">
 		<el-icon  :size="22" :class="asideCollapse ? '' : 'aside-collapse'">
           <expand />
         </el-icon>
-	</div>
+	</div> -->
 		<div class="logo">Vanderlande</div>
 		<div class="header-right">
 			<div class="header-user-con">
@@ -93,7 +93,7 @@ const handleCommand = (command: string) => {
 .header {
 	position: relative;
 	box-sizing: border-box;
-	background: white;
+	background-color: white;
 	width: 100%;
 	height: 69px;
 	font-size: 22px;
@@ -166,4 +166,10 @@ const handleCommand = (command: string) => {
 .el-dropdown-menu__item {
 	text-align: center;
 }
+/* @at-root .dark{
+.header {
+	background-color: black;
+	color: white;
+}
+} */
 </style>

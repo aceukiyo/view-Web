@@ -40,19 +40,19 @@ const props = defineProps({
 let routes = (props.routerList as  CustomRouteRecordRaw[]).filter(r => r.meta && r.meta.isShow) ;
 </script>
 <style lang="scss" scoped>
-/* .line{
+.line{
 	height: 1px;
 	background-color: #fff;
-} */
+} 
 .is-active {
-	background: #2b5a8a;
+	background: #fff;
 	font-weight: 700;
 }
 
 .el-menu-item {
-	/* background-color: #1e3448; */
+	background-color: #5880a5;
 	&:hover {
-		color: #fff;
+		background-color: #fff;
 		font-weight: 700;
 	}
 }
@@ -60,6 +60,7 @@ let routes = (props.routerList as  CustomRouteRecordRaw[]).filter(r => r.meta &&
 .el-menu--collapse {
 	.el-menu-item {
 		justify-content: center;
+		background-color: #fff;
 	}
 }
 </style>

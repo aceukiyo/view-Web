@@ -57,12 +57,12 @@ const routerList = router.options.routes;
 		font-size: 20px;
 	}
 
-	/* .collapse-btn {
+	.collapse-btn {
 		cursor: pointer;
 		padding: 10px;
 		background-color: #333;
 		color: #fff;
-	} */
+	}
 
 	.el-menu {
 		height: calc(100% - 48px);

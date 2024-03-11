@@ -84,7 +84,8 @@ export default {
     roleMan: "角色管理",
     tsuMan: "Tsu管理",
     locationMan: "位置管理",
-    parcelMan: "包裹管理"
+    parcelMan: "包裹管理",
+    tsutypeMan:"Tsu类型"
   },
   api: {
     operationFailed: '操作失败',

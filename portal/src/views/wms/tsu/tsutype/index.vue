@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseTable from "../../../components/tables/index.vue";
+import BaseTable from "../../../../components/tables/index.vue";
 import { reactive, ref, toRefs, toRaw } from "vue";
 import { useI18n } from "../../../../hooks/useI18n";
 import XEUtils from 'xe-utils';

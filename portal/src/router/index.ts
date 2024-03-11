@@ -9,7 +9,7 @@ import { useI18n } from "../hooks/useI18n";
 import Tsu from "../views/wms/tsu/index.vue";
 import Location from "../views/wms/location/index.vue";
 import Parcel from "../views/wms/parcel/index.vue";
-
+import Tsutype from "../views/wms/tsu/tsutype/index.vue"
 
 
 const { t } = useI18n();
@@ -74,9 +74,17 @@ const routes: RouteRecordRaw[] = [
                 meta: {
                     title: t('menus.parcelMan'),
                     isShow: true
-                },
-
-            }
+                },    
+            },
+            {
+                path: '/tsutype',
+                name: 'Tsutype',
+                component: Tsutype,
+                meta: {
+                    title: t('menus.tsutypeMan'),
+                    isShow: true
+                }
+            },
         ],
     },
 
@@ -106,7 +114,8 @@ const routes: RouteRecordRaw[] = [
                     isShow: true,
                 },
                 component: notFound
-            }
+            },
+            
         ],
 
     }
